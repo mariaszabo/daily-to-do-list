@@ -9,7 +9,7 @@ const Layout = (props: Props) => {
     <Background>
       <Card>
         <Content>
-          {props.children}
+        {props.children}
         </Content>
       </Card>
     </Background>
