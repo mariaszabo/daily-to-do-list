@@ -36,9 +36,9 @@ const Card = styled.div`
   
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
+  justify-content: left;
+  align-items: left;
+  padding-left: 200px;
   
   border-radius: 32px;
   background: #FFF;
