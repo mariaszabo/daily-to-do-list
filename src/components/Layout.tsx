@@ -33,6 +33,7 @@ const Card = styled.div`
   heiht: 100%;
   max-width: 1000px;
   max-height: 670px;
+
   
   display: flex;
   flex-direction: column;

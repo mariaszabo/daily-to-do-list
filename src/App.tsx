@@ -30,6 +30,7 @@ export default function App() {
     setTodos([...todos, newTodo]); //face o lista continua de todos cu valorile salvate anterior//
   }
 
+
   const completeTodo = (id: number) => { //functia pt a bifa o sarcina indeplinita
     const index = todos.findIndex(todo => todo.id === id);
     if (index === -1) return; // daca indexul exista ne oprim
@@ -39,13 +40,18 @@ export default function App() {
     todo.complete = !todo.complete;
     setTodos(newTodos); // salvam lista noua
   }  
+
+  const clearAllTasks = () => {
+    setTodos([]); // actualizează starea 'todos' cu un array gol
+  };
+
   
   return (
     <Layout>
       <Title>Daily To Do List</Title>
       <TodoForm onSubmit = {createTodo} />
-      <TodoList todos = {todos} />
-      <TodoCount />
+      <TodoList todos = {todos} onClick = {completeTodo} />
+      <TodoCount todos = {todos} clearAll = {clearAllTasks} />
     </Layout>
   )
 }

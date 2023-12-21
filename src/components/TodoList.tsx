@@ -12,19 +12,32 @@ type ToDo = {
 type Props = {
   //aici are rolul de a afisa ce s-a creat
   todos: ToDo[];
+  onClick: (id: number) => void;
 }
 
-const TodoList: React.FC<Props> = ({todos}) => {
 
-  const [clicked, setClicked] = useState<number>(null);
+const TodoList = (props: Props ) => {
+
+  // const [clicked, setClicked] = useState<number>();
 
   const listItems = (id:number) => {
-    setClicked(id);
+    props.onClick(id);
   }
+
+  const sortTodo = props.todos.sort((a, b) => {
+    // Sortare după proprietatea 'completed' în ordine descrescătoare (mai întâi necompletate)
+    if (a.complete !== b.complete) {
+      return a.complete ? 1 : -1; // Necompletate înainte de completate
+    } 
+    else {
+      // Dacă 'completed' este același, sortează după 'createdAt' în ordine crescătoare
+      return a.createdAt.getTime() - b.createdAt.getTime();
+    }
+  });
   
   return (
     <Container>
-      {todos.map(todo => ( //se utilizează 'map' pentru a parcurge fiecare element din lista "todos" și pentru a afișa un element "Idea", pentru fiecare element din listă
+      { sortTodo.map(todo => ( //se utilizează 'map' pentru a parcurge fiecare element din lista "todos" și pentru a afișa un element "Idea", pentru fiecare element din listă
       
         <Idea
           key = {todo.id} // fiecarui nou element i se atribuie un id unic
@@ -34,10 +47,10 @@ const TodoList: React.FC<Props> = ({todos}) => {
           <Elipse>
             < circle
               cx="16" cy="16" r="15.5" 
-              stroke = {clicked === todo.id ? '#00D8A7' : '#EEE'}
-              fill = {clicked === todo.id ? '#00D8A7' : '#none'}
+              stroke = {todo.complete ? '#00D8A7' : '#EEE'}
+              fill = {todo.complete ? '#00D8A7' : '#none'}
             />
-            {clicked === todo.id && ( // Verifică dacă elementul este bifat pentru a adăuga săgeata mică
+            {todo.complete === true && ( // Verifică dacă elementul este bifat pentru a adăuga săgeata mică
               <path 
                 d= "M2.66666 8.66667L5.99999 12L13.3333 4.66667"
                 stroke="white"
@@ -52,8 +65,9 @@ const TodoList: React.FC<Props> = ({todos}) => {
             )}
     {/* d --> descrierea traseului         */}
           </Elipse>
-          <Text 
-            text-decoration-line = {clicked === todo.id ? 'line-through' : 'none'}
+          <Text
+            crossed = {todo.complete} //se apeleaza funcția 'crossed' pentru
+            text-decoration-line = {todo.complete ? 'line-through' : 'none'}
           >
             {todo.name}
           </Text>
@@ -79,7 +93,7 @@ const Elipse = styled.svg`
   height: 32px;
   
   stroke-width: 1px;
-  stroke: #EEE;
+  stroke: #EEE; 
   fill: none;
 
   alignt-items: center;
@@ -110,7 +124,9 @@ const Text = styled.span`
   font-weight: 500;
   line-height: 110%; /* 17.6px */
   letter-spacing: 0.16px;
-
+  
+  text-decoration: ${props => props.crossed ? 'line-through' : 'none'};
+  text-decoration-color: ${props => props.crossed ? '#8F98A8' : '#EEE'};
   
 `;
 
@@ -126,8 +142,8 @@ const Idea = styled.span`
   }
 
   &:hover ${Elipse} {
-    fill: #2D70FD26;
-    /* stroke: #2D70FD; */ 
+    /* fill: #2D70FD26; */
+    stroke: #2D70FD !important;  
     /* --> !!! ***** ??? */
   }
   
