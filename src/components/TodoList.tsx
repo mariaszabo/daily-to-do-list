@@ -51,8 +51,12 @@ const TodoList = (props: Props ) => {
               fill = {todo.complete ? '#00D8A7' : '#none'}
             />
             {todo.complete === true && ( // Verifică dacă elementul este bifat pentru a adăuga săgeata mică
-              <path 
-                d= "M2.66666 8.66667L5.99999 12L13.3333 4.66667"
+              <path
+                //d="M10 20L12.5 17L20 8" --> nu
+                d="M10.6 16.6L13.9 19L21.3 12.6"
+                ///d="M8 12L16 24L24 12" --> nu
+                //d="M10 14L15 20L25 9" --> X
+                //d = "M2.6 8.6L5.9 12L13.3 4.6" --> X
                 stroke="white"
                 stroke-width="2"
                 stroke-linecap="round"
@@ -93,14 +97,8 @@ const Elipse = styled.svg`
   height: 32px;
   
   stroke-width: 1px;
-  stroke: #EEE; 
+  stroke: #EEE;  
   fill: none;
-
-  alignt-items: center;
-
-  /* &:hover {
-    stroke: #2D70FD26;
-  } */
 `;
 
 // const Arrow = styled.svg`
@@ -116,7 +114,7 @@ const Elipse = styled.svg`
 
 
 const Text = styled.span`
-  color: #001747;
+  color: ${(props) => props.crossed ? '#8F98A8' : 'none'};
   font-feature-settings: 'liga' off;
   font-family: Inter;
   font-size: 16px;
@@ -141,10 +139,10 @@ const Idea = styled.span`
     color: #2D70FD;
   }
 
-  &:hover ${Elipse} {
+  /* &:hover ${Elipse} {
     /* fill: #2D70FD26; */
     stroke: #2D70FD !important;  
     /* --> !!! ***** ??? */
-  }
+  } */
   
 `;

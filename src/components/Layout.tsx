@@ -29,10 +29,11 @@ const Background = styled.div`
 `;
 
 const Card = styled.div`
+
   width: 100%;
-  heiht: 100%;
-  max-width: 1000px;
-  max-height: 670px;
+  
+  max-width: 900px;
+  max-height: 570px;
 
   
   display: flex;

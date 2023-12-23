@@ -41,8 +41,15 @@ const Container = styled.div`
   margin-top: 32px;
 `;
 
+const Content = styled.span`
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+`;
+
 const Input = styled.input`
-  width: 600px;
+  display: flex;
+  width: 580px;
   height: 58px;
   flex-shrink: 0;
   fill: var(--FFFFFF, #FFF);
@@ -58,18 +65,18 @@ const Input = styled.input`
   font-weight: 400;
   line-height: 110%; /* 17.6px */
   letter-spacing: 0.16px;
-
+  padding-left: 20px;
 `;
-
-const Content = styled.span`
-  display: flex;
-  flex-direction: row;
-`;
-
 
 const Button = styled.button`
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  bottom: 7px;
+  
   width: 84px;
-  heigth: 44px;
+  height: 44px;
   display: inline-flex;
   padding: 12px 24px 12px 24px;
   align-items: flex-start;
