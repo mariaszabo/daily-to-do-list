@@ -53,13 +53,14 @@ const TodoCount = (props: Props) => {
 export default TodoCount;
 
 const Container = styled.div`
-  width: 600px;
+  max-width: 600px;
+  width: 100%; 
   height: 42px;
   margin-top: 32px;
 `;
 
 const Line = styled.div`
-  width: 600px;
+  max-width: 600px;
   height: 1px;
   background: #EEE;
 `;

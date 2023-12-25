@@ -30,17 +30,15 @@ const Background = styled.div`
 
 const Card = styled.div`
 
+  max-width: 1000px;
+  max-height: 670px;
+  
   width: 100%;
   
-  max-width: 900px;
-  max-height: 570px;
-
-  
   display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: left;
-  padding-left: 200px;
+  flex-direction: column; 
+  /* justify-content: center; */
+  align-items: center;
   
   border-radius: 32px;
   background: #FFF;

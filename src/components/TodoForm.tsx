@@ -34,7 +34,7 @@ const TodoForm = (props: Props) => {
 export default TodoForm;
 
 const Container = styled.div`
-  width: 600px;
+  max-width: 600px;
   height: 58px;
   flex-shrink: 0;
   display: flex;
@@ -42,14 +42,19 @@ const Container = styled.div`
 `;
 
 const Content = styled.span`
+  width: 600px;
   position: relative;
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
 `;
 
 const Input = styled.input`
+  
   display: flex;
-  width: 580px;
+  max-width: 580px;
+  width: 100%;
+  
+  /* min-width: 360px; */
   height: 58px;
   flex-shrink: 0;
   fill: var(--FFFFFF, #FFF);
