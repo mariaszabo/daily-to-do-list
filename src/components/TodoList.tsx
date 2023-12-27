@@ -101,18 +101,6 @@ const Elipse = styled.svg`
   fill: none;
 `;
 
-// const Arrow = styled.svg`
-//   width: 16px;
-//   height: 16px;
-//   flex-shrink: 0;
-//   stroke="white";
-//   stroke-width="2"; 
-//   stroke-linecap="round";
-//   stroke-linejoin="round";
-//   align-items: center;
-// `;
-
-
 const Text = styled.span`
   color: ${(props) => props.crossed ? '#8F98A8' : 'none'};
   font-feature-settings: 'liga' off;
@@ -139,8 +127,8 @@ const Idea = styled.span`
     color: #2D70FD;
   }
 
-  /* &:hover ${Elipse} {
-    /* fill: #2D70FD26; */
+  &:hover ${Elipse} {
+    fill: #2D70FD26; 
     stroke: #2D70FD !important;  
     /* --> !!! ***** ??? */
   } */

@@ -35,6 +35,7 @@ export default TodoForm;
 
 const Container = styled.div`
   max-width: 600px;
+  width: 100%;
   height: 58px;
   flex-shrink: 0;
   display: flex;
@@ -42,7 +43,8 @@ const Container = styled.div`
 `;
 
 const Content = styled.span`
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: row;

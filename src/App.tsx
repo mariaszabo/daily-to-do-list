@@ -51,7 +51,7 @@ export default function App() {
       <Title>Daily To Do List</Title>
       <TodoForm onSubmit = {createTodo} />
       <TodoList todos = {todos} onClick = {completeTodo} />
-      <TodoCount todos = {todos} clearAll = {clearAllTasks} />
+      <TodoCount todos = {todos} clearAll = {clearAllTasks} /> 
     </Layout>
   )
 }

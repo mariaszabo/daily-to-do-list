@@ -69,7 +69,7 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 24px;
-  gap: 360px;
+  justify-content: space-between; /* isi ia cat spatiu are nevoie */
 `;
 
 const Tasks = styled.span`
